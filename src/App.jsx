@@ -1,11 +1,11 @@
 import Header from './components/Header.jsx';
-import UserInput from './components/UserInput.jsx';
+import UserInput2 from './components/UserInput2.jsx';
 
 function App() {
   return (
     <>
       <Header />
-      <UserInput />
+      <UserInput2 />
     </>
 
   )
