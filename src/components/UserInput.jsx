@@ -1,23 +1,6 @@
 import { useState } from 'react';
 
 const UserInput = () => {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10
-  });
-
-function inputChangeHandler(inputIdentifier, newValue) {
-  setUserInput(prevUserInput => {
-    return {
-      ...prevUserInput, [inputIdentifier]: newValue
-    }
-  })
-    
-    
-
-}
 
   return (
     <section id="user-input">
