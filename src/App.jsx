@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from './components/Header.jsx';
 import UserInput2 from './components/UserInput2.jsx';
+import Results from './components/Results.jsx';
 
 function App() {
   const [userInput,setUserInput] = useState({
@@ -8,12 +9,12 @@ function App() {
     annualInvestment: 1200,
     expectedReturn: 7,
     duration: 10
-  });
+  })
 
-  function inputChangeHandler(inputIdentifier, newValue) {
-    setUserInput(prevUserInput => {
+  const userInputHandler = (inputIdentifier, inputAmount) => {
+    setUserInput(prevInput => {
       return {
-        ...prevUserInput, [inputIdentifier]: newValue
+        ...prevInput,[inputIdentifier]: inputAmount 
       }
     })
   }
@@ -21,7 +22,8 @@ function App() {
   return (
     <>
       <Header />
-      <UserInput2 onChangeInput={ inputChangeHandler}/>
+      <UserInput2 userInput={ userInput } onChangeInput={ userInputHandler }/>
+      <Results input={ userInput }/>
     </>
 
   )

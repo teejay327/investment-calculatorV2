@@ -1,18 +1,4 @@
-const userInput2 = ({ onChange }) => {
-  const [userInput,setUserInput] = useState({
-    initialInvestment: 12000,
-    annualInvestment: 1200,
-    expectedReturn: 7,
-    duration: 10
-  })
-
-  const userInputHandler = (inputIdentifier, inputAmount) => {
-    setUserInput(prevInput => {
-      return {
-        ...prevInput,[inputIdentifier]: inputAmount 
-      }
-    })
-  }
+const userInput2 = ({ onChangeInput, userInput }) => {
 
   return (
     <section id="user-input">
@@ -23,7 +9,7 @@ const userInput2 = ({ onChange }) => {
             type='number'
             required
             value={ userInput.initialInvestment }
-            onChange={(event) => onChange('initialInvestment', (event.target.value)) }
+            onChange={(event) => onChangeInput('initialInvestment', (event.target.value)) }
           >       
           </input>
         </p>
@@ -33,7 +19,7 @@ const userInput2 = ({ onChange }) => {
             type='number'
             required   
             value={ userInput.annualInvestment}  
-            onChange={(event) =>  onChange('annualInvestment', (event.target.value)) }       
+            onChange={(event) =>  onChangeInput('annualInvestment', (event.target.value)) }       
           >
           </input>
         </p>
@@ -45,7 +31,7 @@ const userInput2 = ({ onChange }) => {
             type='number'
             required
             value={ userInput.expectedReturn }
-            onChange={(event) => userInputHandler('expectedReturn',(event.target.value)) }
+            onChange={(event) => onChangeInput('expectedReturn',(event.target.value)) }
           >
           </input>
         </p>
@@ -55,7 +41,7 @@ const userInput2 = ({ onChange }) => {
             type='number'
             required     
             value={ userInput.duration } 
-            onChange={(event) => userInputHandler('duration',(event.target.value)) }    
+            onChange={(event) => onChangeInput('duration',(event.target.value)) }    
           >         
           </input>
         </p>
