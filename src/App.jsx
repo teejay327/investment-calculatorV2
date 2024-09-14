@@ -14,7 +14,7 @@ function App() {
   const userInputHandler = (inputIdentifier, inputAmount) => {
     setUserInput(prevInput => {
       return {
-        ...prevInput,[inputIdentifier]: inputAmount 
+        ...prevInput,[inputIdentifier]: +inputAmount 
       }
     })
   }
