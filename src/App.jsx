@@ -9,7 +9,9 @@ function App() {
     annualInvestment: 1200,
     expectedReturn: 7,
     duration: 10
-  })
+  });
+
+  const isValidInput = userInput.duration >= 1 && userInput.initialInvestment > 0;
 
   const userInputHandler = (inputIdentifier, inputAmount) => {
     setUserInput(prevInput => {
@@ -23,7 +25,8 @@ function App() {
     <>
       <Header />
       <UserInput2 userInput={ userInput } onChangeInput={ userInputHandler }/>
-      <Results input={ userInput }/>
+      { !isValidInput && <p className='center'>Please enter values greater than 0</p> }
+      { isValidInput && <Results input={ userInput }/> }
     </>
 
   )
